@@ -1,0 +1,77 @@
+@import '@/styles/placeholders.css';
+
+.root {
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(51, 46, 43, 0.95);
+  backdrop-filter: blur(100px);
+
+  min-height: 100vh;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 16px;
+  min-height: 100vh;
+}
+
+.pawn {
+  width: 60px;
+}
+
+.hint {
+  max-width: 80%;
+
+  text-align: center;
+  line-height: 16px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hint a {
+  opacity: 1;
+  color: #fff;
+}
+
+.message {
+  background: var(--color-brown);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+
+  padding: 16px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.games {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.empty {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 8px;
+
+  @extend %caption;
+}

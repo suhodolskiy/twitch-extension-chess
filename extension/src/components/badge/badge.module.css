@@ -1,0 +1,11 @@
+.root {
+  border-radius: 2px;
+  padding: 0px 2px;
+
+  background: var(--color-red);
+
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+}

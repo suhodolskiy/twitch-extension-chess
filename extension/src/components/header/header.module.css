@@ -1,0 +1,59 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 8px;
+
+  position: sticky;
+  z-index: 1;
+  left: 0;
+  top: 0;
+
+  padding: 8px 16px;
+  background: rgba(32, 32, 29, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.user {
+  display: flex;
+  column-gap: 8px;
+  overflow: hidden;
+
+  color: #fff;
+  text-decoration: none;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 14px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.fullname {
+  font-size: 11px;
+  opacity: 0.6;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.logo {
+  height: 25px;
+}

@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  border-radius: 3px;
+
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.root img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 3px;
+
+  object-fit: cover;
+}

@@ -1,0 +1,14 @@
+name = "chess-worker"
+compatibility_date = "2022-05-26"
+
+main = "src/index.ts"
+
+kv_namespaces = [ 
+  { binding = "CHESSPLAYERS", id = "ae7ab55970a4414d800b660f33706a53", preview_id = "3b78a7c2355e4e7693f7734512c3fc8a" }
+]
+
+tsconfig = "./tsconfig.json"
+
+
+[dev]
+  port = 8787

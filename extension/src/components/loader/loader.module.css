@@ -1,0 +1,55 @@
+.loader {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  position: relative;
+  animation: svg-animation 1.4s linear infinite;
+  transform-origin: center;
+}
+
+.circle,
+.circleUnderlay {
+  position: absolute;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-linecap: round;
+}
+
+.circleUnderlay {
+  z-index: 0;
+}
+
+.circle {
+  z-index: 1;
+  stroke-dasharray: 80, 200;
+  stroke-dashoffset: 0;
+  animation: circle-animation 1.4s ease-in-out infinite;
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circle-animation {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -124;
+  }
+}

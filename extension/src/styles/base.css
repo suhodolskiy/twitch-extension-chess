@@ -1,0 +1,13 @@
+body {
+  font-family: 'Inter', sans-serif;
+
+  margin: 0;
+  background: var(--color-light-brown);
+
+  color: var(--color-white);
+  font-size: 14px;
+}
+
+#app {
+  background-size: cover;
+}

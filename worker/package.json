@@ -1,0 +1,16 @@
+{
+  "name": "twitch-chess-worker",
+  "version": "1.0.0",
+  "description": "Extension Twtich Chess - Cloudflare worker",
+  "scripts": {
+    "start": "wrangler dev --local",
+    "publish": "wrangler publish"
+  },
+  "author": "Ilya Suhodolskiy <ilya.suhodolskiy@gmail.com>",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.11.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.2",
+    "wrangler": "2.0.6"
+  }
+}

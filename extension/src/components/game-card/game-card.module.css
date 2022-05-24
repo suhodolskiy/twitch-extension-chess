@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  cursor: pointer;
+  background: var(--color-brown);
+
+  transition: background 0.2s;
+}
+
+.root:hover {
+  background: var(--color-dark-brown);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.username {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content span {
+  flex-shrink: 0;
+
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.5;
+}
