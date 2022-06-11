@@ -2,7 +2,7 @@
 import Avatar from '@/components/avatar/Avatar.vue'
 import Badge from '@/components/badge/Badge.vue'
 
-import type { User } from '@/libs/api/types'
+import type { User } from '~/shared/types/api'
 
 import classes from './header.module.css'
 

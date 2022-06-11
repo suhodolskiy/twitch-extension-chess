@@ -1,0 +1,35 @@
+.root {
+  position: relative;
+
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--color-brown);
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #525244;
+}
+
+.active {
+  color: #fff;
+  border-color: var(--color-green);
+}
+
+.number {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+
+  font-size: 11px;
+  text-align: center;
+  line-height: 14px;
+
+  background: var(--color-green);
+}

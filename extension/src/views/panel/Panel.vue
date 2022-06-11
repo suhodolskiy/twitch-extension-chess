@@ -10,17 +10,32 @@ import GameCard from '@/components/game-card/GameCard.vue'
 import twitch from '@/libs/twitch'
 import api from '@/libs/api'
 
-import type { User } from '@/libs/api/types'
+import { StatType, type User } from '~/shared/types/api'
 
 import classes from './panel.module.css'
 import { AxiosError } from 'axios'
+import { computed } from '@vue/reactivity'
 
 const state = reactive<{
   user?: User
+  stats?: StatType[]
   loading: boolean
   error?: string
 }>({
   loading: true,
+})
+
+const stats = computed(() => {
+  if (!state.user?.stats) return []
+
+  const result = []
+
+  for (const type of state.stats || []) {
+    const stat = state.user.stats.find((stat) => stat.type === type)
+    if (stat) result.push(stat)
+  }
+
+  return result
 })
 
 onMounted(async () => {
@@ -34,6 +49,13 @@ onMounted(async () => {
     if (!config?.username?.length) {
       throw 'Please configure the extension'
     }
+
+    state.stats = config.stats || [
+      StatType.Rapid,
+      StatType.Bullet,
+      StatType.Blitz,
+      StatType.Daily,
+    ]
 
     const response = await api.getUser(config.username)
 
@@ -95,9 +117,9 @@ onMounted(async () => {
     <Header :user="state.user" />
 
     <div :class="classes.panel">
-      <div v-if="state.user.stats.length" :class="classes.stats">
+      <div v-if="stats.length" :class="classes.stats">
         <StatCard
-          v-for="stat in state.user.stats"
+          v-for="stat in stats"
           :username="state.user.username"
           v-bind="stat"
           :key="stat.type"

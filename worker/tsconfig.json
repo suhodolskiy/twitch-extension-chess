@@ -10,13 +10,16 @@
       "@cloudflare/workers-types"
     ],
     "resolveJsonModule": true,
-    "allowJs": false,
-    "checkJs": true,
     "noEmit": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "~/*": [
+        "./../*"
+      ]
+    }
   }
 }

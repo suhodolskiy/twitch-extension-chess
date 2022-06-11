@@ -1,6 +1,6 @@
 import { Chess } from '../libs/chess'
 import { zeroPad } from '../libs/utils'
-import { GameStatus, GameType, StatType, User } from '../types'
+import { GameStatus, GameType, StatType, User } from '~/shared/types/api'
 
 const api = new Chess({
   baseURL: 'https://api.chess.com',
@@ -23,10 +23,10 @@ const getGameStatus = (status: string): GameStatus => {
   }
 }
 
-const getGameType = (type: string): GameType => {
+const getGameType = (type: string, rule: string): GameType => {
   switch (type) {
     case 'daily':
-      return GameType.Daily
+      return rule === 'chess960' ? GameType.Daily960 : GameType.Daily
     case 'blitz':
       return GameType.Blitz
     case 'bullet':
@@ -61,6 +61,11 @@ const getUser = async (username: string): Promise<User | undefined> => {
 
     stats: [
       {
+        type: StatType.Fide,
+        title: 'Fide',
+        value: stats.fide,
+      },
+      {
         type: StatType.Rapid,
         title: 'Rapid',
         value: stats.chess_rapid?.last.rating,
@@ -79,6 +84,21 @@ const getUser = async (username: string): Promise<User | undefined> => {
         type: StatType.PuzzlesRush,
         title: 'Puzzle Rush',
         value: stats.puzzle_rush?.best?.score,
+      },
+      {
+        type: StatType.Daily,
+        title: 'Daily',
+        value: stats.chess_daily?.last?.rating,
+      },
+      {
+        type: StatType.Daily960,
+        title: 'Daily 960',
+        value: stats.chess960_daily?.last?.rating,
+      },
+      {
+        type: StatType.Puzzles,
+        title: 'Puzzles',
+        value: stats.tactics?.highest?.rating,
       },
     ],
     games: [],
@@ -122,7 +142,7 @@ const getUser = async (username: string): Promise<User | undefined> => {
           stat: opponent.rating,
           // avatar,
         },
-        type: getGameType(game.time_class),
+        type: getGameType(game.time_class, game.rules),
         status: getGameStatus(user.result),
       })
     }

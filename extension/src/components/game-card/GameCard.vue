@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
-import Avatar from '@/components/avatar/Avatar.vue'
-
+import IconDaily960 from '@/components/icons/IconDaily960.vue'
 import IconBullet from '@/components/icons/IconBullet.vue'
 import IconRapid from '@/components/icons/IconRapid.vue'
 import IconBlitz from '@/components/icons/IconBlitz.vue'
@@ -11,7 +10,7 @@ import IconLoss from '@/components/icons/IconLoss.vue'
 import IconDraw from '@/components/icons/IconDraw.vue'
 import IconWin from '@/components/icons/IconWin.vue'
 
-import { GameStatus, GameType, type Game } from '@/libs/api/types'
+import { GameStatus, GameType, type Game } from '~/shared/types/api'
 
 import classes from './game-card.module.css'
 
@@ -25,6 +24,8 @@ const typeIcon = computed(() => {
       return IconBullet
     case GameType.Daily:
       return IconDaily
+    case GameType.Daily960:
+      return IconDaily960
     default:
       return IconRapid
   }

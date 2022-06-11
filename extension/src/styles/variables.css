@@ -3,10 +3,13 @@
   --color-dark-brown: #24231f;
   --color-light-brown: #332e2b;
   --color-orange: #e68f2c;
+  --color-dark-orange: #e58651;
   --color-yellow: #ffcc01;
   --color-white: #fff;
   --color-bronze: #a18b4f;
   --color-green: #85a94f;
   --color-grey: #7d7c7a;
   --color-red: #c44542;
+
+  --color-gradient-fide: #c44542;
 }

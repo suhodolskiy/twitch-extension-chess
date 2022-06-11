@@ -1,11 +1,14 @@
 {
   "folders": [
-	{
-		"path": "extension"
-	},
-	{
-		"path": "worker"
-	}
-],
+    {
+      "path": "extension"
+    },
+    {
+      "path": "worker"
+    },
+    {
+      "path": "shared"
+    }
+  ],
   "settings": {}
 }

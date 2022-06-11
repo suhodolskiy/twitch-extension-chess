@@ -1,5 +1,8 @@
+import type { StatType } from '~/shared/types/api'
+
 export interface ITwitchConfig {
   username?: string
+  stats?: StatType[]
 }
 
 declare global {

@@ -88,6 +88,18 @@ export interface ChessUserStats {
       score: number
     }
   }
+  chess_daily?: {
+    last?: {
+      rating: number
+    }
+  }
+  chess960_daily?: {
+    last?: {
+      rating: number
+    }
+  }
+
+  fide?: number
 }
 
 export interface ChessGame {

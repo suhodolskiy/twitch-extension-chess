@@ -5,29 +5,49 @@ import IconChat from '@/components/icons/IconChat.vue'
 import IconChess from '@/components/icons/IconChess.vue'
 import IconRefresh from '@/components/icons/IconRefresh.vue'
 
+import StatButton from '@/components/stat-button/StatButton.vue'
+
 import Button from '@/components/button/Button.vue'
 import twitch from '@/libs/twitch'
 
 import classes from './config.module.css'
 import { asyncTimeout } from '@/libs/utils'
 
+import { StatType } from '~/shared/types/api'
+
+const stats = [
+  { value: StatType.Fide, text: 'Fide' },
+  { value: StatType.Rapid, text: 'Rapid' },
+  { value: StatType.Bullet, text: 'Bullet' },
+  { value: StatType.Blitz, text: 'Blitz' },
+  { value: StatType.PuzzleRush, text: 'Puzzles Rush' },
+  { value: StatType.Daily, text: 'Daily' },
+  { value: StatType.Daily960, text: 'Daily 960' },
+  { value: StatType.Puzzles, text: 'Puzzles' },
+]
+
 const state = reactive({
   username: '',
   disabled: false,
+  stats: [StatType.Rapid, StatType.Bullet, StatType.Blitz, StatType.Daily],
   text: 'Save',
 })
 
 onMounted(async () => {
   await twitch.onAuthorized()
-
   const config = twitch.getConfigurationSegment()
+
   if (config?.username) state.username = config.username
+  if (config?.stats) state.stats = config.stats
 })
 
 const onClick = async () => {
   try {
     state.disabled = true
-    twitch.setConfigurationSegment({ username: state.username })
+    twitch.setConfigurationSegment({
+      username: state.username,
+      stats: state.stats,
+    })
     state.text = 'Saving...'
     await asyncTimeout(1000)
     state.disabled = false
@@ -38,16 +58,30 @@ const onClick = async () => {
     state.disabled = false
   }
 }
+
+const onClickStat = (stat: StatType) => {
+  const idx = state.stats.indexOf(stat)
+
+  if (idx === -1) {
+    state.stats.push(stat)
+  } else {
+    state.stats.splice(idx, 1)
+  }
+}
 </script>
 
 <template>
   <div :class="classes.root">
     <div :class="classes.form">
-      <img
-        :class="classes.pawn"
-        src="@/assets/pawn.png"
-        alt="Chess Extension"
-      />
+      <a
+        :class="classes.logo"
+        href="https://headwayapp.co/chess-profile-extension-release-notes"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+      >
+        <img src="@/assets/pawn.png" alt="Chess Extension" />
+        <div :class="classes.release">Release notes</div>
+      </a>
 
       <input
         type="text"
@@ -55,6 +89,20 @@ const onClick = async () => {
         :class="classes.input"
         placeholder="Please enter chess.com username"
       />
+
+      <h2>What stats to show?</h2>
+
+      <div :class="classes.stats">
+        <StatButton
+          v-for="stat in stats"
+          :key="stat.value"
+          :active="state.stats?.includes(stat.value)"
+          :text="stat.text"
+          :index="state.stats?.indexOf(stat.value)"
+          @click="onClickStat(stat.value)"
+        />
+      </div>
+
       <Button
         :disabled="state.username.length < 2 || state.disabled"
         @click="onClick"
@@ -88,6 +136,7 @@ const onClick = async () => {
           </a>
         </span>
       </li>
+      <li>* not an official chess.com extension</li>
     </ul>
   </div>
 </template>
