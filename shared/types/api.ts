@@ -15,7 +15,7 @@ export enum GameStatus {
 export enum StatType {
   Rapid,
   Bullet,
-  PuzzlesRush,
+  PuzzleRush,
   Blitz,
   Fide,
   Daily,
@@ -38,7 +38,6 @@ export interface Game {
 
 interface Stat {
   type: StatType;
-  title: string;
   value?: number;
 }
 

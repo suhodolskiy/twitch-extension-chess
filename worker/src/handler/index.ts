@@ -62,42 +62,34 @@ const getUser = async (username: string): Promise<User | undefined> => {
     stats: [
       {
         type: StatType.Fide,
-        title: 'Fide',
         value: stats.fide,
       },
       {
         type: StatType.Rapid,
-        title: 'Rapid',
         value: stats.chess_rapid?.last.rating,
       },
       {
         type: StatType.Bullet,
-        title: 'Bullet',
         value: stats.chess_bullet?.last.rating,
       },
       {
         type: StatType.Blitz,
-        title: 'Blitz',
         value: stats.chess_blitz?.last.rating,
       },
       {
-        type: StatType.PuzzlesRush,
-        title: 'Puzzle Rush',
+        type: StatType.PuzzleRush,
         value: stats.puzzle_rush?.best?.score,
       },
       {
         type: StatType.Daily,
-        title: 'Daily',
         value: stats.chess_daily?.last?.rating,
       },
       {
         type: StatType.Daily960,
-        title: 'Daily 960',
         value: stats.chess960_daily?.last?.rating,
       },
       {
         type: StatType.Puzzles,
-        title: 'Puzzles',
         value: stats.tactics?.highest?.rating,
       },
     ],
