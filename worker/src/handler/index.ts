@@ -149,7 +149,7 @@ const getResponse = (data: BodyInit, status = 200) => {
 
 export async function handleRequest(request: Request): Promise<Response> {
   const { searchParams } = new URL(request.url)
-  const username = searchParams.get('username')
+  const username = searchParams.get('username')?.toLowerCase()
 
   if (!username) {
     const error = {
