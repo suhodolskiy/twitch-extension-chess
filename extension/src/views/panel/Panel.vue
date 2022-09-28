@@ -117,7 +117,13 @@ onMounted(async () => {
     <Header :user="state.user" />
 
     <div :class="classes.panel">
-      <div v-if="stats.length" :class="classes.stats">
+      <div
+        v-if="stats.length"
+        :class="{
+          [classes.stats]: true,
+          [classes.statsWide]: stats.length === 4,
+        }"
+      >
         <StatCard
           v-for="stat in stats"
           :username="state.user.username"

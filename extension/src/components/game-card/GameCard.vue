@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 
 import IconDaily960 from '@/components/icons/IconDaily960.vue'
+import IconBughouse from '@/components/icons/IconBughouse.vue'
 import IconBullet from '@/components/icons/IconBullet.vue'
 import IconRapid from '@/components/icons/IconRapid.vue'
 import IconBlitz from '@/components/icons/IconBlitz.vue'
@@ -18,6 +19,8 @@ const props = defineProps<{ game: Game }>()
 
 const typeIcon = computed(() => {
   switch (props.game.type) {
+    case GameType.Bughouse:
+      return IconBughouse
     case GameType.Blitz:
       return IconBlitz
     case GameType.Bullet:

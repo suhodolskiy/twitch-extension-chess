@@ -4,6 +4,7 @@ export enum GameType {
   Rapid,
   Blitz,
   Bullet,
+  Bughouse,
 }
 
 export enum GameStatus {

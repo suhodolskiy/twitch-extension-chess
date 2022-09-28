@@ -28,7 +28,7 @@ const getGameType = (type: string, rule: string): GameType => {
     case 'daily':
       return rule === 'chess960' ? GameType.Daily960 : GameType.Daily
     case 'blitz':
-      return GameType.Blitz
+      return rule === 'bughouse' ? GameType.Bughouse : GameType.Blitz
     case 'bullet':
       return GameType.Bullet
     default:

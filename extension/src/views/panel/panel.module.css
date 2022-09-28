@@ -66,6 +66,10 @@
   display: none;
 }
 
+.statsWide {
+  justify-content: space-between;
+}
+
 .games {
   display: flex;
   flex-direction: column;
