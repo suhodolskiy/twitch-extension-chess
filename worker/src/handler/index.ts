@@ -4,7 +4,7 @@ import { GameStatus, GameType, StatType, User } from '~/shared/types/api'
 
 const api = new Chess({
   baseURL: 'https://api.chess.com',
-  application: 'Twitch Extension <twitter.com/shdlsk>',
+  application: 'Twitch Extension <ilya.suhodolskiy@gmail.com>',
 })
 
 const getGameStatus = (status: string): GameStatus => {

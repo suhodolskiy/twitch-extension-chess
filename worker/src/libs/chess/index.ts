@@ -15,7 +15,7 @@ export class Chess {
     try {
       const response = await fetch(`${this.config.baseURL}${path}`, {
         headers: {
-          Agent: this.config.application,
+          'User-Agent': this.config.application,
         },
         ...options,
       })

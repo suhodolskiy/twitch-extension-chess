@@ -1,6 +1,6 @@
 {
   "name": "twitch-chess-worker",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Extension Twtich Chess - Cloudflare worker",
   "scripts": {
     "start": "wrangler dev --local",
